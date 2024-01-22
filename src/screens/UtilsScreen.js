@@ -1,22 +1,27 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, Alert, Text } from 'react-native';
 
-// uncomment for modal implementation
-// import ButtonComponent from '../components/Button/ButtonComponent';
+import SwipePicker from './SwipePicker'
+import ButtonComponent from '../components/Button/ButtonComponent';
 
 const UtilsScreen = () => {
-  // uncomment for SwipePicker modal implementation and import useState from React
-  // const [showSwipePicker, setShowSwipePicker] = useState(false);
+  const [showSwipePicker, setShowSwipePicker] = useState(false);
 
-  return <View style={styles.container} />;
+  return (
+    <View>
+      <ButtonComponent onClick={() => setShowSwipePicker(true)} />
+      <SwipePicker
+        isVisible={showSwipePicker}
+        hideModal={() => setShowSwipePicker(false)}
+        swipeLeftAction={() => Alert.alert('You swiped left!')}
+        swipeRightAction={() => Alert.alert('You swiped right!')}
+        style={{ flex: 1.5/3, backgroundColor: 'red' }}>
+        <View>
+            <Text>Swipe left or right</Text>
+        </View>
+      </SwipePicker>
+    </View>
+  );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
-});
 
 export default UtilsScreen;
