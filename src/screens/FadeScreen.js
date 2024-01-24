@@ -9,7 +9,6 @@ const width = Dimensions.get('window').width;
 const heigth = Dimensions.get('window').height;
 
 const FadeScreen = () => {
-  // uncomment needed state for modal implementation and import useState from React
   const [showFirstModal, setShowFirstModal] = useState(false);
   const [showSecondModal, setShowSecondModal] = useState(false);
   const [showThirdModal, setShowThirdModal] = useState(false);
@@ -90,14 +89,14 @@ const styles = StyleSheet.create({
     right: width / 4 - theme.buttons.standardWidth / 2,
   },
   smallModal: {
-    flex: 1 / 3,
+    flex: 1.25 / 3,
+    margin: 30,
   },
   bottomModal: {
-    height: 150,
-    width: width - 20,
+    height: 250,
+    width,
     position: 'absolute',
     bottom: -10,
-    left: -10,
     borderRadius: 10,
   },
 });

@@ -14,9 +14,8 @@ const ModalComponent = ({
   ...props
  }) => {
   return (
-    <Modal {...props} >
+    <Modal {...props} style={{ margin: 0 }}>
       <View style={[styles.modal, style]}>
-        <Text style={styles.text}>Place for your content</Text>
         {!hideCloseButton && (
           <ButtonComponent
             title="Close"
@@ -33,20 +32,17 @@ const ModalComponent = ({
 const styles = StyleSheet.create({
   closeButton: {
     position: 'absolute',
-    top: 20,
+    top: 40,
     right: 20,
     width: theme.buttons.smallWidth,
     height: theme.buttons.smallHeight,
   },
   modal: {
-    flex: 3 / 4,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.colors.white,
     borderRadius: 30,
-  },
-  text: {
-    fontSize: theme.fontSizes.standard,
   },
 });
 

@@ -9,7 +9,6 @@ const width = Dimensions.get('window').width;
 const heigth = Dimensions.get('window').height;
 
 const SlideScreen = () => {
-  // uncomment needed state for modal implementation and import useState from React
   const [showFirstModal, setShowFirstModal] = useState(false);
   const [showSecondModal, setShowSecondModal] = useState(false);
   const [showThirdModal, setShowThirdModal] = useState(false);
@@ -28,11 +27,11 @@ const SlideScreen = () => {
         isVisible={showFirstModal}
         onBackdropPress={() => setShowFirstModal(false)}
         onBackButtonPress={() => setShowFirstModal(false)}
-        swipeDirection="up"
+        swipeDirection="down" // up | down
         onSwipeComplete={() => setShowFirstModal(false)}
         hideModal={() => setShowFirstModal(false)}
-        animationIn="slideInDown"
-        animationOut="slideOutUp"
+        animationIn="slideInUp" // slideInDown | slideInUp
+        animationOut="slideOutDown" // slideInDown | slideInUp
         style={styles.topModal}
         />
 
@@ -113,15 +112,15 @@ const styles = StyleSheet.create({
     left: width / 2 - theme.buttons.standardWidth / 2,
   },
   topModal: {
-    flex: 1 / 3,
+    flex: 1,
   },
   rightModal: {
     flex: 1,
+    borderRadius: 30,
   },
   bottomModal: {
     position: 'absolute',
     bottom: -20,
-    left: -20,
     height: 250,
     width,
     borderRadius: 10,
